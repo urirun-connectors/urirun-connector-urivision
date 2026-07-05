@@ -1,0 +1,22 @@
+{
+  "id": "urivision",
+  "name": "urivision / VURI",
+  "status": "available",
+  "category": "Vision",
+  "summary": "Run a .vuri process (image + model + aspects + decision question + result schema) into a DecisionCard — a decision with evidence, not a description — through urivision:// routes. The decision layer of the perception stack.",
+  "description": "urivision (VURI, Visual URI Process Language) compiles a .vuri process into a vision-LLM call that returns a structured DecisionCard (decision, confidence, findings with evidence, next actions). This connector serves it as urivision:// URI routes so a urirun node, flow, or readiness kernel can compose the decision layer with capture (kvm), environment (vdisplay) and visual structure (vql). The compile/dry-run query runs in-process (validates a process cheaply, no model); the model-calling run is isolated. The LLM runner needs urivision[litellm] + model creds; without them the run route degrades to ok:false with a hint, never crashing the node.",
+  "useCases": [
+    "Turn a screenshot + question into a DecisionCard (ok/fix/block) with evidence for a flow.",
+    "Cheaply validate a .vuri process (compile/dry-run) before spending a model call.",
+    "Provide the layer-3 vision decision when a cheap anchor is ambiguous (verify-before-act)."
+  ],
+  "flowExample": [
+    "kvm://host/screen/query/capture",
+    "urivision://host/process/query/compile",
+    "urivision://host/process/command/run"
+  ],
+  "requires": [
+    "python>=3.10",
+    "urivision>=0.1.0"
+  ]
+}

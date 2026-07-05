@@ -1,0 +1,5 @@
+[console_scripts]
+urirun-urivision = urirun_connector_urivision.core:main
+
+[urirun.bindings]
+urivision = urirun_connector_urivision.core:urirun_bindings

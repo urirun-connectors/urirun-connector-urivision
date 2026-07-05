@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: urirun-connector-urivision
+Version: 0.1.0
+Summary: Native urivision:// URI surface over urivision/VURI (.vuri process -> DecisionCard) for ifuri and urirun
+Author: Tom Sapletta
+License: Apache-2.0
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: urirun>=0.4.14
+Requires-Dist: urivision>=0.1.0
+
+# urirun-connector-urivision
+
+Native `urivision://` URI surface over [urivision/VURI](../../if-uri/urivision): run a `.vuri` process into a DecisionCard (decision + evidence). The decision layer of the perception stack (vdisplay=env, vql=structure, urivision=decision).
+
+See `../urirun/docs/URI_NATIVE_CONNECTOR_CHECKLIST.md`.
