@@ -88,7 +88,14 @@ def urirun_bindings() -> dict[str, Any]:
 
 
 def connector_manifest() -> dict[str, Any]:
-    return urirun.load_manifest(__package__) or {}
+    """Manifest prose + a GENERATED per-URI capability list (URI_COMMAND_STANDARD.md §6)."""
+    m = urirun.load_manifest(__package__) or {}
+    try:
+        from urirun_connectors_toolkit.connector_sdk import manifest_routes
+        m["routes"] = manifest_routes(urirun_bindings())
+    except Exception:  # noqa: BLE001 - enrichment; never break the manifest
+        pass
+    return m
 
 
 def main(argv: list[str] | None = None) -> int:
