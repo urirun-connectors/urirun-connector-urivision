@@ -3,6 +3,7 @@ pyproject.toml
 tests/test_urivision.py
 urirun_connector_urivision/__init__.py
 urirun_connector_urivision/connector.manifest.json
+urirun_connector_urivision/contracts.json
 urirun_connector_urivision/core.py
 urirun_connector_urivision.egg-info/PKG-INFO
 urirun_connector_urivision.egg-info/SOURCES.txt
