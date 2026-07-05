@@ -22,4 +22,4 @@ urivision = "urirun_connector_urivision.core:urirun_bindings"
 include = ["urirun_connector_urivision*"]
 
 [tool.setuptools.package-data]
-urirun_connector_urivision = ["connector.manifest.json"]
+urirun_connector_urivision = ["connector.manifest.json", "contracts.json"]

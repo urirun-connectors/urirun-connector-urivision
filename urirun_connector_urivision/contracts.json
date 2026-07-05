@@ -1,0 +1,14 @@
+{
+  "contracts": {
+    "process/command/run": {
+      "version": "v1", "effect": "command", "reversible": false,
+      "inp": { "source": "?str", "path": "?str", "roots": "?dict" },
+      "out": { "connector": "const:urivision", "action": "const:urivision-run" },
+      "errors": ["invalid-argument", "unavailable"],
+      "examples": [
+        { "payload": { "source": "proc view://local/screenshot/query/decision-card" },
+          "result": { "ok": true, "connector": "urivision", "action": "urivision-run" } }
+      ]
+    }
+  }
+}
