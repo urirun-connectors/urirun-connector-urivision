@@ -11,6 +11,7 @@ from urirun_connector_urivision import (
 )
 
 ROUTES = {
+    "urivision://host/doctor/query/report",
     "urivision://host/process/query/compile",
     "urivision://host/process/command/run",
 }
