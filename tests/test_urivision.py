@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sys
 import threading
 import types
@@ -122,13 +123,15 @@ def test_urivision_run_oqllm_http_integration(monkeypatch, tmp_path):
     thread = threading.Thread(target=server.serve_forever, daemon=True)
     thread.start()
 
-    def _completion(*, model, messages, api_base, api_key, **_kwargs):
+    def _completion(*, model, messages, api_base=None, api_key=None, **_kwargs):
+        base = api_base or os.environ.get("URIVISION_LLM_API_BASE") or os.environ["OPENAI_API_BASE"]
+        key = api_key or os.environ.get("URIVISION_LLM_API_KEY") or os.environ["OPENAI_API_KEY"]
         req = urllib.request.Request(
-            f"{api_base.rstrip('/')}/chat/completions",
+            f"{base.rstrip('/')}/chat/completions",
             data=json.dumps({"model": model, "messages": messages}).encode("utf-8"),
             headers={
                 "Content-Type": "application/json",
-                "Authorization": f"Bearer {api_key}",
+                "Authorization": f"Bearer {key}",
             },
             method="POST",
         )
